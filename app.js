@@ -16,9 +16,9 @@ fetch(" https://pokeapi.co/api/v2/pokemon/mew")
         let weight = data.weight;
         let moves = data.moves;
         let explosion = moves[69].move.name;
-        console.log(explosion);
+        // console.log(explosion);
         let types = data.types[0].type.name;
-        console.log(types);
+        // console.log(types);
 
         const card = document.createElement("div");
         card.classList.add("card");
@@ -33,32 +33,41 @@ fetch(" https://pokeapi.co/api/v2/pokemon/mew")
         cardBody.classList.add("card-body");
         console.log(cardBody);
 
-        const cardTitle = document.createElement("h5");
-        cardTitle.classList.add("card-title");
-        cardTitle.textContent = pokeName.toUpperCase();
-
         let firstLetter = pokeName.charAt(0).toUpperCase();
         let otherLetters = pokeName.slice(1);
         let fullName = firstLetter + otherLetters;
         console.log(fullName);
 
+        const cardTitle = document.createElement("h5");
+        cardTitle.classList.add("card-title");
+        cardTitle.textContent = fullName;
+
         const cardHeight = document.createElement("p");
         cardHeight.classList.add("card-height");
-        cardHeight.textContent = height;
+        cardHeight.textContent = "height: " + height;
 
         const cardWeight = document.createElement("p");
         cardWeight.classList.add("card-weight");
-         cardWeight.textContent = weight;
+         cardWeight.textContent = "weight: " + weight;
 
         const cardMove = document.createElement("p");
         cardMove.classList.add("card-move");
-        cardMove.textContent = explosion;
+        cardMove.textContent = "moves: " + explosion;
 
         const cardType = document.createElement("p");
         cardType.classList.add("card-type");
-        cardType.textContent = types;
+        cardType.textContent = "type: " + types;
 
-        console.log(cardHeight, cardWeight, cardType, cardMove);
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardWeight);
+        cardBody.appendChild(cardHeight);
+        cardBody.appendChild(cardMove);
+        cardBody.appendChild(cardType);
+
+        card.appendChild(image);
+        card.appendChild(cardBody);
+
+        body.appendChild(card);
 
     });
 
