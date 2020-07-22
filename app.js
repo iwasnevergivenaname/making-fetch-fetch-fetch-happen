@@ -1,11 +1,14 @@
 let containerOne = document.querySelector(".container-one");
 
-
+// call
 fetch("https://api.spacexdata.com/v3/capsules")
+//   ^ returns response v
 .then(response => {
+    // data returned
     return response.json();
 })
 
+//    with that ^data^
 .then(data => {
     const firstElement = data[0];
     console.log(firstElement);
@@ -31,4 +34,4 @@ fetch("https://api.spacexdata.com/v3/capsules")
     }
 });
 
-chcecking
+
